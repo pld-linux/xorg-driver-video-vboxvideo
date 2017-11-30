@@ -25,7 +25,7 @@ BuildRequires:	xorg-xserver-server-devel >= 1.6
 Requires:	xorg-lib-libpciaccess >= 0.12.901
 Requires:	xorg-xserver-server >= 1.6
 Provides:	xorg-driver-video
-ExclusiveArch:	%{ix86} %{x8664}
+ExclusiveArch:	%{ix86} %{x8664} x32
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
