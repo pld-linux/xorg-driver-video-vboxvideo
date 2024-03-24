@@ -1,18 +1,20 @@
 Summary:	X.org video driver for VirtualBox virtual video card
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla wirtualnej karty graficznej VirtualBoksa
 Name:		xorg-driver-video-vboxvideo
-Version:	1.0.0
+Version:	1.0.1
 Release:	1
 License:	MIT
 Group:		X11/Applications
-Source0:	https://xorg.freedesktop.org/releases/individual/driver/xf86-video-vboxvideo-%{version}.tar.bz2
-# Source0-md5:	42c840707d0e5e3459ab615c9814578f
+Source0:	https://xorg.freedesktop.org/releases/individual/driver/xf86-video-vboxvideo-%{version}.tar.xz
+# Source0-md5:	35f4a0059f2294edfc5b93866f45a218
 URL:		https://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
-BuildRequires:	libtool
+BuildRequires:	gcc >= 5:3.2
+BuildRequires:	libtool >= 2:2
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(macros) >= 1.389
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libpciaccess-devel >= 0.12.901
 BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
@@ -21,6 +23,7 @@ BuildRequires:	xorg-proto-xextproto-devel >= 7.0.99.1
 BuildRequires:	xorg-proto-xproto-devel
 BuildRequires:	xorg-util-util-macros >= 1.8
 BuildRequires:	xorg-xserver-server-devel >= 1.6
+BuildRequires:	xz
 %{?requires_xorg_xserver_videodrv}
 Requires:	xorg-lib-libpciaccess >= 0.12.901
 Requires:	xorg-xserver-server >= 1.6
@@ -60,6 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING ChangeLog README
+%doc COPYING ChangeLog README.md
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/vboxvideo_drv.so
 %{_mandir}/man4/vboxvideo.4*
